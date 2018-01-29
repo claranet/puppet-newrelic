@@ -39,6 +39,11 @@ class newrelic::repo::infra {
           src => false,
         },
         require  => Package['apt-transport-https'],
+      } ~> exec { 'newrelic-apt-update':
+        command     => 'apt-get update',
+        cwd         => '/tmp',
+        refreshonly => true,
+        path        => ['/usr/bin'],
       }
     }
 
