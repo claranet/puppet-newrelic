@@ -12,6 +12,13 @@
 #
 class newrelic::repo::legacy {
 
+  exec { 'newrelic-legacy-apt-update':
+    command     => 'apt-get update',
+    cwd         => '/tmp',
+    refreshonly => true,
+    path        => ['/usr/bin'],
+  }
+
   case $facts['os']['family'] {
     'RedHat' : {
       $require = Package['newrelic-repo-5-3.noarch']
@@ -35,6 +42,11 @@ class newrelic::repo::legacy {
           src => false,
         },
         release  => 'newrelic',
+      } ~> exec { 'newrelic-legacy-apt-update':
+        command     => 'apt-get update',
+        cwd         => '/tmp',
+        refreshonly => true,
+        path        => ['/usr/bin'],
       }
     }
 
