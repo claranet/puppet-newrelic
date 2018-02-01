@@ -35,6 +35,11 @@ class newrelic::repo::legacy {
           src => false,
         },
         release  => 'newrelic',
+      } ~> exec { 'newrelic-legacy-apt-update':
+        command     => 'apt-get update',
+        cwd         => '/tmp',
+        refreshonly => true,
+        path        => ['/usr/bin'],
       }
     }
 
