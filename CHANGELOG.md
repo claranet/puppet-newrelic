@@ -4,6 +4,9 @@ Release notes for the claranet/puppet-newrelic module.
 
 ------------------------------------------
 
+## 2.1.1 - 2018-02-01
+  * Fork to fix olx Indonesia problem with apt-get update missing
+
 ## 2.1.0 - 2017-11-22
   * PHP Agent: Fixed a bug where the `newrelic-daemon` service would flap if the start-up mode was set to `agent` - [#13](https://github.com/claranet/puppet-newrelic/issues/13)
   * PHP Agent: New parameter: `default_daemon_settings` for external start-up mode - [#12](https://github.com/claranet/puppet-newrelic/pull/12)
