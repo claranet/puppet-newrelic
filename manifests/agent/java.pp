@@ -16,7 +16,7 @@
 #
 # [*package_source_url*]
 #   URL for the newrelic zip. Used as the source for download of zip.
-#   Default: https://oss.sonatype.org/content/repositories/releases/com/newrelic/agent/java/newrelic-java/
+#   Default: https://oss.sonatype.org/content/repositories/releases/com/newrelic/agent/java/newrelic-java
 #
 # [*package_version*]
 #   Version of the newrelic java agent being used
@@ -44,7 +44,7 @@
 #
 class newrelic::agent::java (
   String  $license_key,
-  String  $package_source_url            = 'https://oss.sonatype.org/content/repositories/releases/com/newrelic/agent/java/newrelic-java/',
+  String  $package_source_url            = 'https://oss.sonatype.org/content/repositories/releases/com/newrelic/agent/java/newrelic-java',
   String  $package_version               = '3.47.1',
   String  $install_dir                   = '/opt',
   String  $newrelic_application_name     = 'webapp',
@@ -54,9 +54,7 @@ class newrelic::agent::java (
 ){
 
   # == Package Installation
-  package { 'unzip':
-    ensure => installed
-  }
+  ensure_packages('unzip')
 
   # == Newrelic java agent fetch/installation
 
